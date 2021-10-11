@@ -10,7 +10,7 @@ platform :ios do
     configuration = 'Debug'
     xcodebuild(scheme: 'fastlane',
                workspace: './ios/fastlane.xcworkspace',
-               xcargs: "-configuration #{configuration} -sdk 'iphonesimulator15.0' -destination platform=iOS Simulator, name=iPhone 12 Pro Max, OS=15.0'"
+               xcargs: "-configuration #{configuration} -sdk 'iphonesimulator15.0' -destination 'platform=iOS Simulator, name=iPhone 12 Pro Max, OS=15.0'"
            )
   end
 
