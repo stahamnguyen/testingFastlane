@@ -1,5 +1,5 @@
 before_all do
-  ensure_git_branch
+  ensure_git_branch(branch: 'test/fastlane')
   ensure_git_status_clean
   git_pull
 end
@@ -7,6 +7,10 @@ end
 platform :ios do
   private_lane :staging_build do
     increment_build_number_in_plist(xcodeproj: './ios/fastlane.xcodeproj', target: 'fastlane')
-    gym(scheme: )
+    gym(scheme: 'fastlane', workspace: './ios/fastlane.xcworkspace')
+  end
+
+  lane :beta do
+    staging_build
   end
 end
